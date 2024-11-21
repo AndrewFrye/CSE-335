@@ -3,7 +3,8 @@ include("db_connection.php");
 
 try {
 
-    // Check if the StudentId is provided through a GET request (from a form)
+
+    // Check if the StudentId is provided
     if (isset($_GET['StudentId'])) {
         $studentId = $_GET['StudentId'];
 
@@ -23,7 +24,9 @@ try {
             echo "Student ID: " . htmlspecialchars($result["StudentId"]) . "<br>";
             echo "Major: " . htmlspecialchars($result["Major"]) . "<br>";
             echo "GPA: " . htmlspecialchars($result["GPA"]) . "<br>";
-            echo "Year: " . htmlspecialchars($result["Year"]) . "<br>";
+            echo "Year: " . htmlspecialchars(string: $result["Year"]) . "<br>";
+            echo "Name: " . htmlspecialchars(string: $result["StudentName"]) . "<br>";
+
         } else {
             echo "No student found with StudentId = " . htmlspecialchars($studentId) . ".";
         }

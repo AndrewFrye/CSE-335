@@ -3,7 +3,7 @@ include("db_connection.php");
 
 try {
 
-    // Check if the EnrollmentId is provided through a GET request (from a form)
+    // Check if the EnrollmentId is provided
     if (isset($_GET['EnrollmentId'])) {
         $enrollmentId = $_GET['EnrollmentId'];
 

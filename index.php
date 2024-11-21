@@ -61,12 +61,27 @@ include("advanced_op.php");
 
     <hr>
 
+    <!-- Form to Retrieve an Enrollment -->
     <h3>Retrieve Student</h3>
     <form action="retrieve_student.php" method="get">
         <label for="StudentId">Student ID:</label>
         <input type="number" id="StudentId" name="StudentId" required><br><br>
 
         <input type="submit" value="Retrieve Student">
+    </form>
+
+    <hr>
+
+    <!-- Form to Generate Report -->
+    <h3>Generate Student Enrollment Report</h3>
+    <form method="post" action="advanced_op.php">
+        <label for="student_id">Select Student ID:</label>
+        <select id="student_id" name="student_id">
+            <?php for ($i = 1; $i <= 50; $i++): ?>
+                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+            <?php endfor; ?>
+        </select>
+        <button type="submit">Generate Report</button>
     </form>
 
 </body>
