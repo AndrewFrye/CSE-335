@@ -1,0 +1,101 @@
+Student Id,Major,GPA,Year
+1,Mathematics,2.01,3
+2,Biology,2.03,3
+3,Chemistry,3.74,1
+4,History,3.83,2
+5,English,3.63,4
+6,Physics,3.23,1
+7,Computer Science,2.32,2
+8,Physics,3.02,4
+9,Biology,2.38,1
+10,English,3.58,4
+11,English,2.47,2
+12,Computer Science,3.26,2
+13,Mathematics,2.96,2
+14,Physics,3.01,3
+15,Chemistry,2.21,1
+16,Mathematics,3.85,3
+17,Computer Science,2.17,2
+18,Chemistry,3.42,2
+19,English,3.27,3
+20,Physics,3.23,1
+21,Computer Science,2.84,2
+22,Mathematics,2.7,4
+23,Biology,2.63,4
+24,English,2.7,3
+25,Mathematics,3.32,1
+26,Physics,2.2,2
+27,Biology,3.07,3
+28,History,3.35,2
+29,Physics,2.88,4
+30,Physics,2.54,4
+31,Mathematics,2.7,4
+32,Physics,3.18,4
+33,History,2.44,4
+34,Physics,3.82,3
+35,English,2.45,4
+36,Mathematics,2.35,3
+37,English,3.77,3
+38,Computer Science,3.37,2
+39,Biology,3.64,2
+40,English,3.98,2
+41,History,3.2,2
+42,English,2.35,1
+43,Chemistry,3.24,3
+44,Chemistry,3.27,1
+45,Chemistry,3.92,3
+46,Chemistry,2.29,2
+47,Chemistry,3.37,1
+48,English,3.26,2
+49,Chemistry,2.98,2
+50,Computer Science,3.28,3
+51,History,2.41,3
+52,Computer Science,2.72,4
+53,Physics,2.51,4
+54,Mathematics,2.2,1
+55,Physics,3.92,1
+56,Biology,3.82,3
+57,History,3.38,1
+58,Computer Science,3.88,3
+59,History,3.07,2
+60,History,3.24,4
+61,Chemistry,2.01,2
+62,English,2.91,4
+63,Chemistry,3.94,2
+64,Biology,2.45,1
+65,Chemistry,2.69,1
+66,Biology,2.14,3
+67,History,2.86,2
+68,Biology,3.0,2
+69,English,3.01,1
+70,Computer Science,2.84,3
+71,Physics,3.53,3
+72,History,2.74,2
+73,History,2.11,2
+74,Mathematics,3.84,4
+75,Chemistry,2.11,3
+76,Chemistry,3.65,1
+77,Mathematics,3.87,4
+78,History,2.69,2
+79,Physics,2.31,3
+80,Mathematics,2.54,2
+81,Biology,2.62,3
+82,Physics,2.52,2
+83,Physics,2.36,3
+84,History,3.15,3
+85,Computer Science,3.41,3
+86,Chemistry,3.01,4
+87,English,3.37,4
+88,Computer Science,2.83,1
+89,Mathematics,3.99,4
+90,Physics,2.38,2
+91,Mathematics,2.81,3
+92,Physics,2.36,1
+93,Physics,2.76,3
+94,English,3.42,1
+95,History,2.68,2
+96,Mathematics,2.62,1
+97,English,2.26,4
+98,History,3.41,4
+99,Chemistry,2.03,3
+100,English,2.5,3

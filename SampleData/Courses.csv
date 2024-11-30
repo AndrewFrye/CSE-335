@@ -1,0 +1,11 @@
+Course Id,Course Name,Department,Instructor Id,Room Id
+1,Introduction to CS,CS,1,101
+2,Calculus I,Math,2,102
+3,Biology 101,Bio,3,103
+4,Physics I,Physics,4,104
+5,Organic Chemistry,Chemistry,5,105
+6,World History,History,6,106
+7,English Literature,English,7,107
+8,Data Structures,CS,8,108
+9,Linear Algebra,Math,9,109
+10,Genetics,Bio,10,110
