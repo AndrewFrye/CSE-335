@@ -1,89 +1,201 @@
 <?php
-include("db_connection.php");
-include("add_enrollment.php");
-include("delete_enrollment.php");
-include("retrieve_enrollment.php");
-include("retrieve_student.php");
-include("advanced_op.php");
+include("src/php/db_connection.php");
+include("src/php/add_enrollment.php");
+include("src/php/delete_enrollment.php");
+include("src/php/retrieve_enrollment.php");
+include("src/php/retrieve_student.php");
+include("src/php/advanced_op.php");
 ?>
 
 <!DOCTYPE html>
 <html>
 
+<script type="text/javascript" src="src/js/Index.js"></script>
+<script type="text/javascript" src="src/js/GenerateReport.js"></script>
+<script type="text/javascript" src="src/js/RetrieveStudent.js"></script>
+<script type="text/javascript" src="src/js/RetrieveEnrollment.js"></script>
+<script type="text/javascript" src="src/js/DeleteEnrollment.js"></script>
+<script type="text/javascript" src="src/js/AddEnrollment.js"></script>
+
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Student Enrollment Database</title>
+    <link rel="stylesheet" href="css/Index.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script>
+        sortDataList();
+    </script>
 </head>
 
 <body>
-    <h1>Student Enrollment Database</h1>
 
-    <h2>Choose an Action:</h2>
+<div id="TabButtons" class="w3-Sidebar w3-bar-block w3-red">
+    <h3 class="w3-bar-item" id="MainHeader">Student Enrollment Database</h3>
+    <button class="w3-bar-item w3-button tablink" id="OpenAddEnrollment" onclick="openTab(event, 'AddEnrollment')">Add
+        Enrollment
+    </button>
+    <button class="w3-bar-item w3-button tablink" id="OpenDeleteEnrollment"
+            onclick="openTab(event, 'DeleteEnrollment')">Delete Enrollment
+    </button>
+    <button class="w3-bar-item w3-button tablink" id="OpenRetrieveEnrollment"
+            onclick="openTab(event, 'RetrieveEnrollment')">Retrieve
+        Enrollment
+    </button>
+    <button class="w3-bar-item w3-button tablink" id="OpenRetrieveStudent" onclick="openTab(event, 'RetrieveStudent')">
+        Retrieve Student
+    </button>
+    <button class="w3-bar-item w3-button tablink" id="OpenGenerateReport" onclick="openTab(event, 'GenerateReport')">
+        Generate Report
+    </button>
+    <!--    <span class="strech"></span>-->
+</div>
 
-    <!-- Form to Add an Enrollment -->
-    <h3>Add Enrollment</h3>
-    <form action="add_enrollment.php" method="post">
-        <label for="EnrollmentId">Enrollment ID:</label>
-        <input type="number" id="EnrollmentId" name="EnrollmentId" required><br><br>
+<div id="Page">
+    <div id="AddEnrollment" class="tabcontent w3-display-container">
+        <!-- Form to Add an Enrollment -->
+        <div class="content">
+            <h3 class="w3-border-bottom">Add Enrollment</h3>
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <input class="w3-input w3-border w3-round-medium" type="text" list="CourseIdList"
+                           id="AddEnrollmentCourseId"
+                           name="AddEnrollmentCourseId" placeholder="Course ID" required>
+                </div>
+                <div class="w3-third">
+                    <input class="w3-input w3-border w3-round-medium" type="text" list="StudentIdList"
+                           id="AddEnrollmentStudentId"
+                           name="AddEnrollmentStudentId" placeholder="Student ID" required>
+                </div>
+                <div class="w3-third">
+                    <input class="w3-input w3-border w3-round-medium" type="text" list="LetterGradeList"
+                           id="AddEnrollmentLetterGrade"
+                           name="AddEnrollmentLetterGrade" maxlength="1" placeholder="Letter Grade" required>
+                </div>
+            </div>
+        </div>
 
-        <label for="CourseId">Course ID:</label>
-        <input type="number" id="CourseId" name="CourseId" required><br><br>
 
-        <label for="StudentId">Student ID:</label>
-        <input type="number" id="StudentId" name="StudentId" required><br><br>
+        <datalist id="LetterGradeList">
+            <option value="A"></option>
+            <option value="B"></option>
+            <option value="C"></option>
+            <option value="D"></option>
+            <option value="F"></option>
+        </datalist>
 
-        <label for="LetterGrade">Letter Grade:</label>
-        <input type="text" id="LetterGrade" name="LetterGrade" maxlength="1" required><br><br>
 
-        <input type="submit" value="Add Enrollment">
-    </form>
+        <div class="w3-padding w3-margin-top w3-display-bottom middle bottom-item">
+            <button class="w3-button w3-round-large executeButton w3-red" type="button"
+                    onclick="addEnrollment()">Add
+                Enrollment
+            </button>
+        </div>
 
-    <hr>
+        <div id="addEnrollmentResults" class="resultsDiv"></div>
+    </div>
 
-    <!-- Form to Delete an Enrollment -->
-    <h3>Delete Enrollment</h3>
-    <form action="delete_enrollment.php" method="post">
-        <label for="EnrollmentId">Enrollment ID:</label>
-        <input type="number" id="EnrollmentId" name="EnrollmentId" required><br><br>
+    <div id="DeleteEnrollment" class="tabcontent">
+        <!-- Form to Delete an Enrollment -->
+        <h3 class="w3-border-bottom">Delete Enrollment</h3>
 
-        <input type="submit" value="Delete Enrollment">
-    </form>
+        <input class="w3-input w3-border w3-round-medium" type="text" list="EnrollmentIdList" id="DeleteEnrollmentId"
+               placeholder="Enrollment ID">
 
-    <hr>
+        <div class="w3-padding w3-margin-top w3-display-bottom middle bottom-item">
+            <button class="w3-button w3-round-large executeButton w3-red" type="button" onclick="deleteEnrollment()">
+                Delete Enrollment
+            </button>
+        </div>
+        <div id="deleteEnrollmentResults" class="resultsDiv"></div>
+    </div>
 
-    <!-- Form to Retrieve an Enrollment -->
-    <h3>Retrieve Enrollment</h3>
-    <form action="retrieve_enrollment.php" method="get">
-        <label for="EnrollmentId">Enrollment ID:</label>
-        <input type="number" id="EnrollmentId" name="EnrollmentId" required><br><br>
+    <div id="RetrieveEnrollment" class="tabcontent">
+        <!-- Form to Retrieve an Enrollment -->
+        <h3 class="w3-border-bottom">Retrieve Enrollment</h3>
 
-        <input type="submit" value="Retrieve Enrollment">
-    </form>
+        <input class="w3-input w3-border w3-round-medium" type="text" list="EnrollmentIdList" id="RetrieveEnrollmentId"
+               placeholder="Enrollment ID">
 
-    <hr>
+        <div class="w3-padding w3-margin-top w3-display-bottom middle bottom-item">
+            <button class="w3-button w3-round-large executeButton w3-red" type="button" onclick="retrieveEnrollment()">
+                Retrieve Enrollment
+            </button>
+        </div>
+        <div id="enrollmentData" class="resultsDiv"></div>
+    </div>
 
-    <!-- Form to Retrieve an Enrollment -->
-    <h3>Retrieve Student</h3>
-    <form action="retrieve_student.php" method="get">
-        <label for="StudentId">Student ID:</label>
-        <input type="number" id="StudentId" name="StudentId" required><br><br>
+    <div id="RetrieveStudent" class="tabcontent">
+        <!-- Form to Retrieve a Student -->
+        <h3 class="w3-border-bottom">Retrieve Student</h3>
 
-        <input type="submit" value="Retrieve Student">
-    </form>
+        <input class="w3-input w3-border w3-round-medium" type="text" list="StudentIdList" id="RetrieveStudentId"
+               name="RetrieveStudentId" required placeholder="Student ID">
 
-    <hr>
+        <div class="w3-padding w3-margin-top w3-display-bottom middle bottom-item">
+            <button class="w3-button w3-round-large executeButton w3-red" type="button"
+                    onclick="retrieveStudent(RetrieveStudentId.value)">Retrieve Student
+            </button>
+        </div>
+        <div id="studentData" class="resultsDiv"></div>
+    </div>
 
-    <!-- Form to Generate Report -->
-    <h3>Generate Student Enrollment Report</h3>
-    <form method="post" action="advanced_op.php">
-        <label for="student_id">Select Student ID:</label>
-        <select id="student_id" name="student_id">
-            <?php for ($i = 1; $i <= 50; $i++): ?>
-                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-            <?php endfor; ?>
-        </select>
-        <button type="submit">Generate Report</button>
-    </form>
+    <div id="GenerateReport" class="tabcontent">
+        <!-- Form to Generate Report -->
+        <h3 class="w3-border-bottom">Generate Student Enrollment Report</h3>
+
+        <input class="w3-input w3-border w3-round-medium" type="text" list="StudentIdList" id="ReportStudentId" placeholder="Student ID">
+
+        <div class="w3-padding w3-margin-top w3-display-bottom middle bottom-item">
+            <button class="w3-button w3-round-large executeButton w3-red" type="button" onclick="GenerateReport()">Generate Report</button>
+        </div>
+        <div id="report" class="resultsDiv"></div>
+    </div>
+</div>
+
+<div id="DataListDiv">
+    <datalist id="StudentIdList">
+        <?php
+        $sql = "SELECT StudentId, StudentName FROM student_enrollment.student";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($results as $row): ?>
+            <option value="<?php echo $row['StudentName'] . ' (' . $row['StudentId'] . ')'; ?>"
+                    data-id="<?php echo $row['StudentId']; ?>"></option>
+        <?php endforeach; ?>
+    </datalist>
+
+    <datalist id="CourseIdList">
+        <?php
+        $sql = "SELECT CourseId, CourseName FROM student_enrollment.course";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($results as $row): ?>
+            <option value="<?php echo $row['CourseName'] . ' (' . $row['CourseId'] . ')'; ?>"
+                    data-id="<?php echo $row['CourseId']; ?>"></option>
+        <?php endforeach; ?>
+    </datalist>
+
+    <datalist id="EnrollmentIdList">
+        <?php
+        $sql = "SELECT EnrollmentId FROM student_enrollment.enrollment";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($results as $row): ?>
+            <option value="<?php echo $row['EnrollmentId']; ?>"><?php echo $row['EnrollmentId']; ?></option>
+        <?php endforeach; ?>
+    </datalist>
+</div>
 
 </body>
+
+<script lang="javascript">
+    openDefaultTab('AddEnrollment');
+</script>
 
 </html>

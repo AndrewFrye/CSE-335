@@ -1,5 +1,5 @@
 create table Enrollment(
-    EnrollmentId int primary key,
+    EnrollmentId int primary key auto_increment,
     StudentId int,
     CourseId int,
     LetterGrade varchar(255),

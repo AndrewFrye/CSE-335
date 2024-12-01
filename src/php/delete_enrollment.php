@@ -4,7 +4,7 @@ include("db_connection.php");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
         // Capture the form input value
-        $enrollmentId = $_POST['EnrollmentId'];
+        $enrollmentId = $_POST['enrollment_id'];
 
         $sql = "DELETE FROM student_enrollment.Enrollment WHERE EnrollmentId = :EnrollmentId";
         $stmt = $conn->prepare($sql);
