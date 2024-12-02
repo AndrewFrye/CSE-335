@@ -39,19 +39,8 @@ function retrieveStudent() {
                 </thead>
                 <tbody>`;
 
-            // Once UI is finished may go back and allow multiple rows to be displayed
-            // JSON.parse(data).data.forEach(row => {
-            //     table += `<tr>
-            //         <td>${row.StudentID}</td>
-            //         <td>${row.StudentName}</td>
-            //         <td>${row.Major}</td>
-            //         <td>${row.GPA}</td>
-            //         <td>${row.Year}</td>
-            //     </tr>`;
-            // });
-
             table += `<tr>
-                <td>${JSON.parse(data).data.StudentID}</td>
+                <td>${JSON.parse(data).data.StudentId}</td>
                 <td>${JSON.parse(data).data.StudentName}</td>
                 <td>${JSON.parse(data).data.Major}</td>
                 <td>${JSON.parse(data).data.GPA}</td>
