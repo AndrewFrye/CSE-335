@@ -10,17 +10,17 @@ include("src/php/advanced_op.php");
 <!DOCTYPE html>
 <html>
 
-<script type="text/javascript" src="../js/Index.js"></script>
-<script type="text/javascript" src="../js/GenerateReport.js"></script>
-<script type="text/javascript" src="../js/RetrieveStudent.js"></script>
-<script type="text/javascript" src="../js/RetrieveEnrollment.js"></script>
-<script type="text/javascript" src="../js/DeleteEnrollment.js"></script>
-<script type="text/javascript" src="../js/AddEnrollment.js"></script>
+<script type="text/javascript" src="src/js/Index.js"></script>
+<script type="text/javascript" src="src/js/GenerateReport.js"></script>
+<script type="text/javascript" src="src/js/RetrieveStudent.js"></script>
+<script type="text/javascript" src="src/js/RetrieveEnrollment.js"></script>
+<script type="text/javascript" src="src/js/DeleteEnrollment.js"></script>
+<script type="text/javascript" src="src/js/AddEnrollment.js"></script>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Student Enrollment Database</title>
-    <link rel="stylesheet" href="../../css/Index.css">
+    <link rel="stylesheet" href="css/Index.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script>
         sortDataList();

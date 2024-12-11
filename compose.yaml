@@ -14,6 +14,10 @@ services:
       - DB_HOST=db
       - DB_NAME=example
       - DB_USER=root
+    dns:
+      - 8.8.8.8
+    dns_search:
+      - _CSE335
   db:
     image: mariadb
     restart: always
@@ -22,6 +26,7 @@ services:
       - db-password
     volumes:
       - db-data:/var/lib/mysql
+      - ./MySQL:/docker-entrypoint-initdb.d
     environment:
       - MARIADB_ROOT_PASSWORD_FILE=/run/secrets/db-password
       - MARIADB_DATABASE=example

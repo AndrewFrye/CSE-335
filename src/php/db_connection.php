@@ -1,6 +1,6 @@
 <?php
 // Database connection parameters
-$host = 'localhost:3306';
+$host = 'db';
 $dbname = 'student_enrollment';
 $username = 'cse-335-user';
 $password = 'password';
